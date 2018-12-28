@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SuperMech Simulator/Workshop</title>
+    <!-- ==================== icon for tab =========================== -->
+    <link rel="icon" href="img/eye.png" sizes="16x16">
+
+    <!-- Bootstrap Library -->
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Import main css -->
+    <link rel="stylesheet" href="css/main_M.css">
+
+    <!-- ========= Global site tag (gtag.js) - Google Analytics =======-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127334991-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-127334991-1');
+    </script>
+    <!-- =================== End of Google Analytics ================== -->
+</head>
+
+<body>
+    <!-- Navigator Bar -->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="https://supermechone.netlify.com/" target="_blank">Old Simulator</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Simulator -->
+    <div class="simulator">
+        <div class="all-components">
+            <!-- Items -->
+            <div class="items">
+                <div class="items1-6">
+                    <div class="d-flex">
+                        <!-- Top Weapon Left -->
+                        <div class="slot" onclick="itemsModal('topWepLeft', 'TopWeapons')" data-toggle="modal"
+                            data-target="#myModal">
+                            <img id="topWepLeft" class="image-hmax" src="img/TopWeapons/nothing.png" alt="">
+                        </div>
+                        <!-- Drone -->
+                        <div class="slot" onclick="itemsModal('droneId', 'Drones')" data-toggle="modal" data-target="#myModal">
+                            <img id="droneId" class="image-hmax" src="img/drones/nothing.png" alt="">
+                        </div>
+                        <!-- Top Weapon Right -->
+                        <div class="slot" onclick="itemsModal('topWepRight', 'TopWeapons')" data-toggle="modal"
+                            data-target="#myModal">
+                            <img id="topWepRight" class="image-hmax" src="img/TopWeapons/nothing_R.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="d-flex">
+                        <!-- Side Weapon One -->
+                        <div class="slot" onclick="itemsModal('sideWepOne', 'SideWeapons')" data-toggle="modal"
+                            data-target="#myModal">
+                            <img id="sideWepOne" class="image-hmax" src="img/SideWeapons/nothing.png" alt="">
+                        </div>
+                        <!-- Armour -->
+                        <div onchange="changeRobotArmour()" onclick="itemsModal('armourId', 'Armours')" class="slot"
+                            data-toggle="modal" data-target="#myModal">
+                            <img id="armourId" class="image-hmax" src="img/armours/nothing.png" alt="">
+                        </div>
+                        <!-- Side Weapon Two -->
+                        <div onclick="itemsModal('sideWepTwo', 'SideWeapons')" class="slot" data-toggle="modal"
+                            data-target="#myModal">
+                            <img id="sideWepTwo" class="image-hmax" src="img/SideWeapons/nothing_R.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="items1-7">
+                    <div class="d-flex">
+                        <!-- Side Weapon Three -->
+                        <div onclick="itemsModal('sideWepThree', 'SideWeapons')" class="slot" data-toggle="modal"
+                            data-target="#myModal">
+                            <img id="sideWepThree" class="image-hmax" src="img/SideWeapons/nothing.png" alt="">
+                        </div>
+                        <!-- Legs -->
+                        <div onclick="itemsModal('legsId', 'Legs')" class="slot" data-toggle="modal" data-target="#myModal">
+                            <img id="legsId" class="image-hmax" src="img/legs/nothing.png" alt="">
+                        </div>
+                        <!-- Side Weapon Four -->
+                        <div onclick="itemsModal('sideWepFour','SideWeapons')" class="slot" data-toggle="modal"
+                            data-target="#myModal">
+                            <img id="sideWepFour" class="image-hmax" src="img/SideWeapons/nothing_R.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="d-flex">
+                        <!-- Teleport -->
+                        <div onclick="itemsModal('telepId', 'Teleport')" class="slot" data-toggle="modal" data-target="#myModal">
+                            <img id="telepId" class="image-hmax" src="img/Teleport/Nothing_teleport.png" alt="">
+                        </div>
+                        <!-- Charge -->
+                        <div onclick="itemsModal('chargeId','Charge')" class="slot" data-toggle="modal" data-target="#myModal">
+                            <img id="chargeId" class="image-hmax" src="img/Charge/nothing_charge.png" alt="">
+                        </div>
+                        <!-- Hook -->
+                        <div onclick="itemsModal('hookId', 'Hook')" class="slot" data-toggle="modal" data-target="#myModal">
+                            <img id="hookId" class="image-hmax" src="img/Hook/nothing_hook.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-center">
+                        <!-- Shield -->
+                        <div onclick="itemsModal('shieldId', 'Shield')" class="slot" data-toggle="modal" data-target="#myModal">
+                            <img id="shieldId" class="image-hmax" src="img/Shield/nothing_shield.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Robot look -->
+            <div id="robot" class="robot-slot">
+                <!-- drone -->
+                <div class="drone" data-toggle="modal" data-target="#myModal">
+                    <img id="robotDrone" class="img-responsive img" src="" alt="">
+                </div>
+                <div class="robot">
+
+                    <div id="divSideWepFour" class="side-wep-four">
+                        <img id="robotSideWep4" class="img-responsive img" src="" alt="">
+                    </div>
+                    <div id="divSideWepOne" class="side-wep-one">
+                        <img id="robotSideWep1" class="img-responsive img" src="" alt="">
+                    </div>
+                    <div id="divSideWepThree" class="side-wep-three">
+                        <img id="robotSideWep3" class="img-responsive img" src="" alt="">
+                    </div>
+                    <div id="divSideWepTwo" class="side-wep-two">
+                        <img id="robotSideWep2" class="img-responsive img" src="" alt="">
+                    </div>
+
+                    <div id="divRobotArmour" class="armour">
+                        <img id="robotArmour" class="d-none img-responsive img" src="img/Armours/Nothing.png" alt="">
+
+                    </div>
+                    <div id="divRobotLegOne" class="leg-one">
+                        <img id="robotLegOne" class="d-none img-responsive img" src="img/Legs/Nothing.png" alt="">
+                    </div>
+                    <div id="divRobotLegTwo" class="leg-two">
+                        <img id="robotLegTwo" class="d-none img-responsive img" src="img/Legs/Nothing.png" alt="">
+                    </div>
+
+                    <div id="divTopLeft" class="top-wep-one">
+                        <img id='robotTopWepOne' class="img-responsive img" src="" alt="">
+
+                    </div>
+                    <div id="divTopRight" class="top-wep-two">
+                        <img id="robotTopWepTwo" class="img-responsive img" src="" alt="">
+                    </div>
+                    <div id="misc" class="robot-misc">
+                        <img class="img-responsive img" src="img/Miscs(icons)/747.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- Stats info -->
+            <div class="stats-slot">
+                <h3 class="stats-title">Mech Status</h3>
+                <!-- Weight -->
+                <div class="d-flex">
+                    <img class="img-icon" src="img/Miscs(icons)/weight.png" alt="" /><span id="weightId" class="span-stats">0</span>
+                </div>
+                <!-- Health -->
+                <div class="d-flex">
+                    <img class="img-icon" src="img/Miscs(icons)/hp.png" alt="" /><span id="healthId" class="span-stats">0</span>
+                </div>
+                <!-- Energy -->
+                <div class="d-flex">
+                    <img class="img-icon" src="img/Miscs(icons)/energy.png" alt="" /><span id="energyId" class="span-stats">0</span>
+                </div>
+                <!-- Energy Regen -->
+                <div class="d-flex">
+                    <img class="img-icon" src="img/Miscs(icons)/energy_regen.png" alt="" /><span id="energyRegenId"
+                        class="span-stats">0</span>
+                </div>
+                <!-- Heat -->
+                <div class="d-flex">
+                    <img class="img-icon" src="img/Miscs(icons)/heat.png" alt="" /><span id="heatId" class="span-stats">0</span>
+                </div>
+                <!-- Cooling -->
+                <div class="d-flex">
+                    <img class="img-icon" src="img/Miscs(icons)/cooling.png" alt="" /><span id="coolingId" class="span-stats">0</span>
+                </div>
+                <!-- Psyhical Resistance -->
+                <div class="d-flex">
+                    <img class="img-icon" src="img/Miscs(icons)/pysresist.png" alt="" /><span id="pysId" class="span-stats">0</span>
+                </div>
+                <!-- Explosion Resistance -->
+                <div class="d-flex">
+                    <img class="img-icon" src="img/Miscs(icons)/expresist.png" alt="" /><span id="expId" class="span-stats">0</span>
+                </div>
+                <!-- Electric Resistance -->
+                <div class="d-flex">
+                    <img class="img-icon" src="img/Miscs(icons)/eleresist.png" alt="" /><span id="eleId" class="span-stats">0</span>
+                </div>
+                <!-- Tutorial -->
+                <div class="d-flex" data-toggle="modal" data-target="#myModalInfo">
+                    <img class="swords" src="img/Miscs(icons)/sign.png" alt="" />
+                </div>
+            </div>
+        </div>
+        <!-- Modules -->
+        <div class="d-flex margin-top-15 justify-center">
+
+            <div onclick="itemsModal('moduleOne', 'Modules')" class="slot" data-toggle="modal" data-target="#myModal">
+                <img id="moduleOne" class="image-hmax" src="img/Modules/nothing.png" alt="">
+            </div>
+
+            <div onclick="itemsModal('moduleTwo', 'Modules')" class="slot" data-toggle="modal" data-target="#myModal">
+                <img id="moduleTwo" class="image-hmax" src="img/Modules/nothing.png" alt="">
+
+            </div>
+            <div onclick="itemsModal('moduleThree', 'Modules')" class="slot" data-toggle="modal" data-target="#myModal">
+                <img id="moduleThree" class="image-hmax" src="img/Modules/nothing.png" alt="">
+
+            </div>
+            <div onclick="itemsModal('moduleFour', 'Modules')" class="slot" data-toggle="modal" data-target="#myModal">
+                <img id="moduleFour" class="image-hmax" src="img/Modules/nothing.png" alt="">
+
+            </div>
+            <div onclick="itemsModal('moduleFive', 'Modules')" class="slot" data-toggle="modal" data-target="#myModal">
+                <img id="moduleFive" class="image-hmax" src="img/Modules/nothing.png" alt="">
+
+            </div>
+            <div onclick="itemsModal('moduleSix', 'Modules')" class="slot" data-toggle="modal" data-target="#myModal">
+                <img id="moduleSix" class="image-hmax" src="img/Modules/nothing.png" alt="">
+
+            </div>
+            <div onclick="itemsModal('moduleSeven', 'Modules')" class="slot" data-toggle="modal" data-target="#myModal">
+                <img id="moduleSeven" class="image-hmax" src="img/Modules/nothing.png" alt="">
+
+            </div>
+            <div onclick="itemsModal('moduleEight', 'Modules')" class="slot" data-toggle="modal" data-target="#myModal">
+                <img id="moduleEight" class="image-hmax" src="img/Modules/nothing.png" alt="">
+            </div>
+            <div class="slot" onclick="changeStats()">
+                <img id="arenaStats" class="image-hmax" src="img/Miscs(icons)/twoSword.png" alt="">
+
+            </div>
+        </div>
+    </div>
+    <div id="simulatorArenaId" class="simulator-arena margin-top-15">
+        <div class="slot-arena">
+            <img class="img-arena" src="img/Miscs(icons)/heat.png" alt="">
+            <select onchange="changeProcent('procentHeat', 'heatArena')" name="" id="heatArena">
+                <option value="procent0">0%</option>
+                <option value="procent1">1%</option>
+                <option value="procent3">3%</option>
+                <option value="procent5">5%</option>
+                <option value="procent7">7%</option>
+                <option value="procent9">9%</option>
+                <option value="procent11">11%</option>
+                <option value="procent13">13%</option>
+                <option value="procent15">15%</option>
+                <option value="procent17">17%</option>
+                <option value="procent20">20%</option>
+            </select>
+        </div>
+        <div class="slot-arena">
+            <img class="img-arena" src="img/Miscs(icons)/cooling.png" alt="">
+            <select onchange="changeProcent('procentCooling', 'coolingArena')" name="" id="coolingArena">
+                <option value="procent0">0%</option>
+                <option value="procent1">1%</option>
+                <option value="procent3">3%</option>
+                <option value="procent5">5%</option>
+                <option value="procent7">7%</option>
+                <option value="procent9">9%</option>
+                <option value="procent11">11%</option>
+                <option value="procent13">13%</option>
+                <option value="procent15">15%</option>
+                <option value="procent17">17%</option>
+                <option value="procent20">20%</option>
+            </select>
+        </div>
+        <div class="slot-arena">
+            <img class="img-arena" src="img/Miscs(icons)/energy.png" alt="">
+            <select onchange="changeProcent('procentEnergy', 'energyArena')" name="" id="energyArena">
+                <option value="procent0">0%</option>
+                <option value="procent1">1%</option>
+                <option value="procent3">3%</option>
+                <option value="procent5">5%</option>
+                <option value="procent7">7%</option>
+                <option value="procent9">9%</option>
+                <option value="procent11">11%</option>
+                <option value="procent13">13%</option>
+                <option value="procent15">15%</option>
+                <option value="procent17">17%</option>
+                <option value="procent20">20%</option>
+            </select>
+        </div>
+        <div class="slot-arena">
+            <img class="img-arena" src="img/Miscs(icons)/energy_regen.png" alt="">
+            <select onchange="changeProcent('procentEngRegen', 'energyRegenArena')" name="" id="energyRegenArena">
+                <option value="procent0">0%</option>
+                <option value="procent1">1%</option>
+                <option value="procent3">3%</option>
+                <option value="procent5">5%</option>
+                <option value="procent7">7%</option>
+                <option value="procent9">9%</option>
+                <option value="procent11">11%</option>
+                <option value="procent13">13%</option>
+                <option value="procent15">15%</option>
+                <option value="procent17">17%</option>
+                <option value="procent20">20%</option>
+            </select>
+        </div>
+        <div class="slot-arena">
+            <img class="img-arena" src="img/Miscs(icons)/expresist.png" alt="">
+            <select onchange="changeProcent('procentExpResist', 'expResArena')" name="" id="expResArena">
+                <option value="procent0">0%</option>
+                <option value="procent3">3%</option>
+                <option value="procent6">6%</option>
+                <option value="procent10">10%</option>
+                <option value="procent14">14%</option>
+                <option value="procent18">18%</option>
+                <option value="procent22">22%</option>
+                <option value="procent26">26%</option>
+                <option value="procent30">30%</option>
+                <option value="procent34">34%</option>
+                <option value="procent40">40%</option>
+            </select>
+        </div>
+        <div class="slot-arena">
+            <img class="img-arena" src="img/Miscs(icons)/eleresist.png" alt="">
+            <select onchange="changeProcent('procentEleResist', 'eleResArena')" name="" id="eleResArena">
+                <option value="procent0">0%</option>
+                <option value="procent3">3%</option>
+                <option value="procent6">6%</option>
+                <option value="procent10">10%</option>
+                <option value="procent14">14%</option>
+                <option value="procent18">18%</option>
+                <option value="procent22">22%</option>
+                <option value="procent26">26%</option>
+                <option value="procent30">30%</option>
+                <option value="procent34">34%</option>
+                <option value="procent40">40%</option>
+            </select>
+        </div>
+        <div class="slot-arena">
+            <img class="img-arena" src="img/Miscs(icons)/pysresist.png" alt="">
+            <select onchange="changeProcent('procentPysResist', 'pysResArena')" name="" id="pysResArena">
+                <option value="procent0">0%</option>
+                <option value="procent3">3%</option>
+                <option value="procent6">6%</option>
+                <option value="procent10">10%</option>
+                <option value="procent14">14%</option>
+                <option value="procent18">18%</option>
+                <option value="procent22">22%</option>
+                <option value="procent26">26%</option>
+                <option value="procent30">30%</option>
+                <option value="procent34">34%</option>
+                <option value="procent40">40%</option>
+            </select>
+        </div>
+        <div class="slot-arena">
+            <img class="img-arena" src="img/Miscs(icons)/hp.png" alt="">
+            <select onchange="changeProcent('procentHp', 'hpArena')" name="" id="hpArena">
+                <option value="level0">0</option>
+                <option value="level1">20</option>
+                <option value="level2">40</option>
+                <option value="level3">60</option>
+                <option value="level4">90</option>
+                <option value="level5">120</option>
+                <option value="level6">150</option>
+                <option value="level7">180</option>
+                <option value="level8">220</option>
+                <option value="level9">260</option>
+                <option value="level10">300</option>
+            </select>
+        </div>
+
+    </div>
+    <div class="app-info">
+        <h3 class="header-info">SuperMech Simulator 2.0.0</h3>
+        <div class="text-center col-xs-12 col-sm-6 col-md-3">
+            <h3>What is new</h3>
+            <p>* Full support on any devices</p>
+            <p>* Custom arena stats list</p>
+            <p>* Live robot changes</p>
+        </div>
+        <div class="text-center text-success col-xs-12 col-sm-6 col-md-3">
+            <h3>Comming Soon</h3>
+            <p>* Save and load system</p>
+            <p>* Separate fan items from official ones</p>
+            <p>* Fight with robot created</p>
+        </div>
+        <div class="text-center text-danger col-xs-12 col-sm-6 col-md-3">
+            <h3>Bugs</h3>
+            <p>- Some items may have incorrect values</p>
+            <p>- You can have more then one protector module</p>
+            <p>- Images of right weapons</p>
+        </div>
+        <div class="text-center col-xs-12 col-sm-6 col-md-3">
+            <h3>Contact Us</h3>
+            <p>*If you enjoy the simulator, please join the discussion on Community!</p>
+            <span>Page:</span>
+            <span>
+                <a href="http://community.tacticsoft.net/t/new-supermech-simulator/29409/70">SuperMech Community</a>
+            </span>
+            <p>* If you have any questions or ideas please contact me at robert.marian.ciubotariu@gmail.com
+            </p>
+        </div>
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header bg-black">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h3 class="modal-title title-center" id="modalTitle">Modal Header</h3>
+                    </div>
+                    <div id="modalBody" class="modal-body bg-black d-flex flex-wrap">
+
+                    </div>
+                    <div class="modal-footer bg-black">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal TUTORIAL -->
+        <div id="myModalInfo" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header bg-black">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h3 class="modal-title title-center" id="">TUTORIAL</h3>
+                    </div>
+                    <div id="modalBody" class="modal-body bg-black d-flex flex-wrap">
+                        <div class="div-buttons">
+                            <button id="aboutId" onclick="tutorialMenu(event), aboutContent()" class="info-btn btn-clicked">About</button>
+                            <button id="howToId" onclick="tutorialMenu(event), howItWorks()" class="info-btn">How to ?</button>
+                            <!-- <button id="statsInfoId" onclick="tutorialMenu(event)" class="info-btn">Stats</button> -->
+                        </div>
+                        <div id="contentId">
+                            <h4 class="text-center">What is the purpouse of the simulator ?</h4>
+                            <p>The simulator app was designed for supermech game players to improve their robots from
+                                game.
+                                It brings the posibility to design/edit your actual or future robot game.
+                            </p>
+                            <h4 class="text-center">What is the supermech game?</h4>
+                            <p>Is a MMORPG game where you have to build robots/fight against players and environment.</p>
+                            <h4 class="text-center">If you are new to supermech game</h4>
+                            <p>This tutorial may help you to understand what all of these are for,
+                                and how can you build your robot.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer bg-black">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script src="js/itemsStats_M.js"></script>
+<script src="js/statsCalculation_M.js"></script>
+<script src="js/infoModal_M.js"></script>
+<script src="js/tutorial_M.js"></script>
+
+
+
+</html>
